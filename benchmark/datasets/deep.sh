@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+DATASET="deep"
+DATA_TYPE="float"
+DIM=96
+METRIC="l2"
+RECALL_AT="${RECALL_AT:-10}"
+
+NPTS_FULL=1000000000
+NPTS_BASE=900000000
+UPDATE_POINTS=100000000
+
+__deep_root="${DEEP_ROOT:-$REPO_DIR/datasets/deep}"
+DATA_BIN="${DATA_BIN:-$__deep_root/base.1B.fbin}"
+QUERY_BIN="${QUERY_BIN:-$__deep_root/query.public.10K.fbin}"
+GT_BIN_KCACHED="${GT_BIN_KCACHED:-$__deep_root/deep_1000000000_gt100.bin}"
+
+__deep_idx="${DEEP_INDEX_DIR:-$REPO_DIR/indexes/deep}"
+CANONICAL_INDEX_0P9B="${CANONICAL_INDEX_0P9B:-$__deep_idx/deep0.9b_R64_L100_B32_M200_noPQ}"
+CANONICAL_R="${CANONICAL_R:-64}"
+R="${R:-$CANONICAL_R}"
+
+__deep_dgai="${DEEP_DGAI_DIR:-$REPO_DIR/indexes-DGAI/deep}"
+DGAI_CANONICAL_DIR="${DGAI_CANONICAL_DIR:-$__deep_dgai}"
+DGAI_CANONICAL_NAME="${DGAI_CANONICAL_NAME:-deep1b_900000000_R64_L100_PQ32_M64}"
+DGAI_STRATEGY="${DGAI_STRATEGY:-21}"

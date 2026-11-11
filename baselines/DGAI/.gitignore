@@ -1,0 +1,15 @@
+build/
+.vscode/
+indices/
+.cache/
+data/*
+data-example/*
+figures/*
+scripts/tests/drop_cache
+*.log
+log/
+*.pdf
+# benchmark harness builds (see benchmark/DGAI/common.sh)
+build-query/
+build-odinann/
+__pycache__/
